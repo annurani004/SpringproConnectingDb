@@ -1,5 +1,6 @@
 package com.Springpro.Springpro.Student.Entity;
 
+import com.Springpro.Springpro.Teacher.Entity.Teacher;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -18,9 +19,16 @@ public class Student {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "marks")
-    private int marks;
-
     @Column(name = "name")
     private String name;
+
+    @Column(name = "st_age")
+    private int st_age;
+
+    @Column(name = "subject")
+    private String subject;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teach_id")
+    private Teacher teacher;
 }
